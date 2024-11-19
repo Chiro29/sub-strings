@@ -14,18 +14,39 @@ def sub_string(s, array)
   words_found
 end 
 
-puts "Write something"
-string = gets.chomp
+puts "Choose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary"
 
-until string =~ /^[a-zA-Z\s!?,.']+$/ do
-  puts "Only letters of the alphabelt and space"
-  string = gets.chomp
-end
+loop do
+  choice = gets.chomp.to_i
 
-result = sub_string(string, dictionary)
+  case choice
+    when 1  
+      puts "Write something"
+      string = gets.chomp
 
-if result.empty?
-  puts "No words found"
-else 
-  puts result
+      until string =~ /^[a-zA-Z\s!?,.']+$/ do
+        puts "Only letters of the alphabelt and space"
+        string = gets.chomp
+      end
+
+      result = sub_string(string, dictionary)
+
+      if result.empty?
+        puts "No words found"
+      else 
+        puts result
+      end
+      
+      break
+    when 2
+      puts "test 2"
+      
+      break
+    when 3
+      puts "test 3"
+      
+      break
+    else
+      puts "You can only choose between 1 to 3\nChoose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary"
+  end
 end
