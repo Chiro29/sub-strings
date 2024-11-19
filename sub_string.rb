@@ -14,6 +14,16 @@ def sub_string(s, array)
   words_found
 end 
 
+def add(s, array)
+  s = s.downcase
+
+  if array.include?(s)
+    puts "There is already the word you are adding in the dictionary\nTry searching for it with the option sub strings"
+  else
+    array << s 
+  end
+end
+
 puts "Choose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary"
 
 loop do
@@ -25,7 +35,7 @@ loop do
       string = gets.chomp
 
       until string =~ /^[a-zA-Z\s!?,.']+$/ do
-        puts "Only letters of the alphabelt and space"
+        puts "Only letters of the alphabet and space"
         string = gets.chomp
       end
 
@@ -39,8 +49,15 @@ loop do
       
       break
     when 2
-      puts "test 2"
-      
+      puts "Insert the word you want to add in the dictionary\nRemember that adding or deleting a word in the dictionary will only be temporary and will not be saved in the file"
+      string = gets.chomp
+
+      until string =~ /^[a-zA-Z]+$/ do
+        puts "Only letters of the alphabet"
+        string = gets.chomp
+      end
+
+      dictionary = add(string, dictionary)
       break
     when 3
       puts "test 3"
