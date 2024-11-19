@@ -20,7 +20,20 @@ def add(s, array)
   if array.include?(s)
     puts "There is already the word you are adding in the dictionary\nTry searching for it with the option sub strings"
   else
+    puts "The word: #{s} is added in the dictionary"
     array << s 
+  end
+end
+
+def delete(s, array)
+  s = s.downcase
+  
+  if array.include?(s)
+    puts "The word: #{s} is deleted in the dictionary"
+    array.delete(s)
+    array
+  else
+    puts "No words found"
   end
 end
 
@@ -60,7 +73,15 @@ loop do
       dictionary = add(string, dictionary)
       break
     when 3
-      puts "test 3"
+      puts "Insert the word you want to delete in the dictionary\nRemember that adding or deleting a word in the dictionary will only be temporary and will not be saved in the file"
+      string = gets.chomp
+
+      until string =~ /^[a-zA-Z]+$/ do
+        puts "Only letters of the alphabet"
+        string = gets.chomp
+      end
+
+      dictionary = delete(string, dictionary)
       
       break
     else
