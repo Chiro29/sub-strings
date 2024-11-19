@@ -37,7 +37,7 @@ def delete(s, array)
   end
 end
 
-puts "Choose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary"
+puts "Choose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary\n4) Show all words inside the dictionary"
 
 loop do
   choice = gets.chomp.to_i
@@ -84,7 +84,11 @@ loop do
       dictionary = delete(string, dictionary)
       
       break
+    when 4 
+      puts dictionary
+
+      break
     else
-      puts "You can only choose between 1 to 3\nChoose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary"
+      puts "You can only choose between 1 to 3\nChoose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary\n4) Show all words inside the dictionary"
   end
 end
