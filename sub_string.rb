@@ -41,10 +41,10 @@ loop do
   puts "Choose:\n1) Find sub strings\n2) Add a word in the dictionary\n3) Delete a word in the dictionary\n4) Show all words inside the dictionary"
 
   loop do
-    choice = gets.chomp.to_i
+    choice = gets.chomp
 
     case choice
-      when 1  
+      when "1"  
         puts "Write something"
         string = gets.chomp
 
@@ -62,7 +62,7 @@ loop do
         end
         
         break
-      when 2
+      when "2"
         puts "Insert the word you want to add in the dictionary\nRemember that adding or deleting a word in the dictionary will only be temporary and will not be saved in the file"
         string = gets.chomp
 
@@ -73,7 +73,7 @@ loop do
 
         dictionary = add(string, dictionary)
         break
-      when 3
+      when "3"
         puts "Insert the word you want to delete in the dictionary\nRemember that adding or deleting a word in the dictionary will only be temporary and will not be saved in the file"
         string = gets.chomp
 
@@ -85,7 +85,7 @@ loop do
         dictionary = delete(string, dictionary)
         
         break
-      when 4 
+      when "4" 
         puts dictionary
 
         break
